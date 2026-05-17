@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis Estadístico - Peso, Altura, Velocidad y Color</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="diseno.css">
+</head>
+<body>
+<div class="container">
+    <h1>Análisis de datos: Peso, Altura, Velocidad y Color</h1>
+    <div class="sub">Frecuencias absolutas, relativas, acumuladas | Media, mediana, moda | Gráficos de barras, pastel y polígono de frecuencias</div>
+
+    <div class="table-wrapper">
+        <table id="data-table">
+            <thead>
+                <tr><th>Peso (kg)</th><th>Altura (cm)</th><th>Velocidad (m/s)</th><th>Color</th></tr>
+            </thead>
+            <tbody id="tabla-datos">
+                <!-- Se llena con JS -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Estadísticas generales: Media, Mediana, Moda por cada variable numérica -->
+    <div class="stats-grid" id="stats-cards"></div>
+
+    <!-- Gráficos principales: frecuencia absoluta (barras) + relativa (pastel) + polígono de frecuencias -->
+    <div class="charts-container">
+        <div class="chart-box">
+            <h3>Frecuencia Absoluta (Color)</h3>
+            <canvas id="barChart" width="400" height="280"></canvas>
+        </div>
+        <div class="chart-box">
+            <h3>Frecuencia Relativa (Color)</h3>
+            <canvas id="pieChart" width="400" height="280"></canvas>
+        </div>
+        <div class="chart-box">
+            <h3>Polígono de Frecuencias (Velocidad)</h3>
+            <canvas id="polygonChart" width="400" height="280"></canvas>
+        </div>
+    </div>
+
+    <!-- Tablas completas de frecuencias absolutas, relativas, acumuladas para variable Color y también para Velocidad -->
+    <div style="display: flex; flex-wrap: wrap; gap: 25px; margin-top: 20px;">
+        <div style="flex: 1; min-width: 260px;" class="tabla-frecuencias">
+            <h3>Frecuencias - Color</h3>
+            <table id="freq-color-table">
+                <thead><tr><th>Color</th><th>Frec. Absoluta</th><th>Frec. Relativa</th><th>Frec. Acumulada</th></tr></thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div style="flex: 1.5; min-width: 320px;" class="tabla-frecuencias">
+            <h3>Frecuencias - Velocidad (m/s)</h3>
+            <table id="freq-vel-table">
+                <thead><tr><th>Intervalo</th><th>Frec. Abs.</th><th>Frec. Rel.</th><th>Frec. Acum.</th><th>Marca clase</th></tr></thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <footer>Datos procesados con limpieza de valores NA. Media/mediana/moda calculadas omitiendo NA. Polígono basado en intervalos de velocidad.</footer>
+</div>
+
+<script src="logica.js"></script>
+</body>
+</html>
